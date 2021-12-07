@@ -235,38 +235,38 @@ void backward(
   int max_row,
   int max_col
 ) {
-  int alignment_len = 0;
-  char result_x_alignment[m+n-1];
-  char result_y_alignment[m+n-1];
+  int char_n = 0;
+  char x_res[m+n-1];
+  char y_res[m+n-1];
   int i = max_row;
   int j = max_col;
   // Keep tracing back from element with max_score until we hit a 0
   while (pred[i][j] != 0) {
     switch(pred[i][j]) {
       case 1: // diagonal
-        result_x_alignment[alignment_len] = x[i-1];
-        result_y_alignment[alignment_len] = y[j-1];
+        x_res[char_n] = x[i-1];
+        y_res[char_n] = y[j-1];
         i--;
         j--;
         break;
       case 2: // left
-        result_x_alignment[alignment_len] ='-';
-        result_y_alignment[alignment_len] = y[j-1];
+        x_res[char_n] ='-';
+        y_res[char_n] = y[j-1];
         j--;
         break;
       case 3: // up
-        result_x_alignment[alignment_len] = x[i-1];
-        result_y_alignment[alignment_len] = '-';
+        x_res[char_n] = x[i-1];
+        y_res[char_n] = '-';
         i--;
         break;
     }
-    alignment_len++;
+    char_n++;
 
   }
   printf("Local alignment for reference: ");
-  print_reverse(result_x_alignment,alignment_len);
+  print_reverse(x_res,char_n);
   printf("Local alignment for query: ");
-  print_reverse(result_y_alignment,alignment_len);
+  print_reverse(y_res,char_n);
 }
 
 void smith_waterman(char* x, char* y) {

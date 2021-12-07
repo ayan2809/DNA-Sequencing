@@ -12,11 +12,11 @@ int MISMATCH = -1;
 int SPACE = -1;
 
 
-void smith_waterman_forward(char* x, char* y, int x_len, int y_len, int score[x_len+1][y_len+1], int pred[x_len+1][y_len+1], int* max_row, int* max_col);
-void smith_waterman_backward(char* x, char* y, int x_len, int y_len, int score[x_len+1][y_len+1], int pred[x_len+1][y_len+1], int* max_row, int* max_col);
+void front(char* x, char* y, int x_len, int y_len, int score[x_len+1][y_len+1], int pred[x_len+1][y_len+1], int* max_row, int* max_col);
+void sw_back(char* x, char* y, int x_len, int y_len, int score[x_len+1][y_len+1], int pred[x_len+1][y_len+1], int* max_row, int* max_col);
 
 
-void smith_waterman_forward(
+void front(
   char* x,
   char* y,
   int x_len,
@@ -76,7 +76,7 @@ void smith_waterman_forward(
 }
 
 
-void smith_waterman_backward(
+void sw_back(
   char* x,
   char* y,
   int x_len,
@@ -86,38 +86,38 @@ void smith_waterman_backward(
   int* max_row,
   int* max_col
 ) {
-  int alignment_len = 0;
+  int char_n = 0;
   int i = *max_row;
   int j = *max_col;
-  char result_x_alignment[x_len+y_len+1];
-  char result_y_alignment[x_len+y_len+1];
+  char x_res[x_len+y_len+1];
+  char y_res[x_len+y_len+1];
   // Keep tracing back from element with max_score until we hit a 0
   while (pred[i][j] != 0) {
     switch(pred[i][j]) {
       case 1: // diagonal
-        result_x_alignment[alignment_len] = x[i-1];
-        result_y_alignment[alignment_len] = y[j-1];
+        x_res[char_n] = x[i-1];
+        y_res[char_n] = y[j-1];
         i--;
         j--;
         break;
       case 2: // left
-        result_x_alignment[alignment_len] ='-';
-        result_y_alignment[alignment_len] = y[j-1];
+        x_res[char_n] ='-';
+        y_res[char_n] = y[j-1];
         j--;
         break;
       case 3: // up
-        result_x_alignment[alignment_len] = x[i-1];
-        result_y_alignment[alignment_len] = '-';
+        x_res[char_n] = x[i-1];
+        y_res[char_n] = '-';
         i--;
         break;
     }
-    alignment_len++;
+    char_n++;
 
   }
   printf("Local alignment for reference: ");
-  print_reverse(result_x_alignment,alignment_len);
+  print_reverse(x_res,char_n);
   printf("Local alignment for query: ");
-  print_reverse(result_y_alignment,alignment_len);
+  print_reverse(y_res,char_n);
 }
 
 int main(int argc, const char* argv[]) {
@@ -138,10 +138,10 @@ int main(int argc, const char* argv[]) {
   int pred[ref_len+1][query_len+1];
   int max_row;
   int max_col;
-  smith_waterman_forward(ref, query, ref_len, query_len, score, pred, &max_row, &max_col);
+  front(ref, query, ref_len, query_len, score, pred, &max_row, &max_col);
   printf("===========================================================\n"
          "RESULTS\n"
          "===========================================================\n");
-  smith_waterman_backward(ref, query, ref_len, query_len, score, pred, &max_row, &max_col);
+  sw_back(ref, query, ref_len, query_len, score, pred, &max_row, &max_col);
   return 0;
 }
