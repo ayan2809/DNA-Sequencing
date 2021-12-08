@@ -75,7 +75,8 @@ Check the Time in seconds
 <p align="center">
   <img src=https://user-images.githubusercontent.com/63350417/145221371-cab696de-b217-4542-a223-5d814e045f99.png>
             <br>
-         <img src=https://user-images.githubusercontent.com/63350417/145221491-5d743736-1cf0-4243-a013-f374b1fd4e1a.png>   
+         <img src=https://user-images.githubusercontent.com/63350417/145221491-5d743736-1cf0-4243-a013-f374b1fd4e1a.png> 
+  </p>
 
 
 ### Viterbi
