@@ -97,6 +97,4 @@ C, OpenMP parallel programming
 
 - [Aniket Bansal](https://github.com/nicolausmaximus)
 - [Ayan Sadhukhan](https://github.com/ayan2809)
-- [Dhruv Patel](https://github.com/)
-
 
