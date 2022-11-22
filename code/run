@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -ex
+
+# smith-waterman
+cd smith-waterman
+gcc -fopenmp smith_waterman_serial.c -o waterman_serial -lm 
+gcc -fopenmp smith_waterman_parallel.c -o waterman_parallel -lm 
+time ./waterman_serial < input.txt
+time ./waterman_parallel < input.txt
+
+# viterbi
+cd ../viterbi
+gcc -fopenmp viterbi_serial.c -o viterbi_serial -lm 
+gcc -fopenmp viterbi_parallel.c -o viterbi_parallel -lm 
+time ./viterbi_serial < input.txt
+time ./viterbi_parallel < input.txt

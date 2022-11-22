@@ -68,27 +68,6 @@ Check the Time in seconds
   time ./viterbi_parallel
 ```
 
-
-## Code Outputs
-
-### Smith Waterman
-<p align="center">
-  <img src=https://user-images.githubusercontent.com/63350417/145221371-cab696de-b217-4542-a223-5d814e045f99.png>
-            <br>
-         <img src=https://user-images.githubusercontent.com/63350417/145221491-5d743736-1cf0-4243-a013-f374b1fd4e1a.png> 
-  </p>
-
-
-### Viterbi
-<p align="center">
-  <img src=https://user-images.githubusercontent.com/42286904/145219780-e6abc18a-f2b0-489a-a82a-16313bbb9f1a.png>
-  <br>
-  <img src=https://user-images.githubusercontent.com/42286904/145219798-38aef4d2-f36c-4b35-a284-66a7e52daa20.png>
- </p>
-
-
-
-
 ## Tech Stack Used
 
 C, OpenMP parallel programming
@@ -97,4 +76,4 @@ C, OpenMP parallel programming
 
 - [Aniket Bansal](https://github.com/nicolausmaximus)
 - [Ayan Sadhukhan](https://github.com/ayan2809)
-
+- [Harini S]()

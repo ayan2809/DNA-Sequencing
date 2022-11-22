@@ -1,0 +1,13 @@
+metadata_version: 1
+name: DNA Sequencing using Smith Waterman and Viterbi Algorithm_PDC
+description: |-
+  More and more industries are offering and utilising cloud solutions that operate on the principles of parallel and
+  distributed computing. Everything will eventually be built on parallel and distributed computing, thus we want
+  to contribute by parallelizing crucial algorithms like the technique for identifying hidden states and sequence
+  alignment. The objective of the research is to learn about parallel and distributed computing, parallelisation of
+  algorithms and also successfully propose and implement the Local sequence alignment using the smith-waterman
+  algorithm and the Viterbi algorithm in a serial and parallel manner
+authors:
+- name: Aniket Bansal; Ayan Sadhukhan, Harini S
+  affiliations:
+  - name: Vellore Institute of Technology

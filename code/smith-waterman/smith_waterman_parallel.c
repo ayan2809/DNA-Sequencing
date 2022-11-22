@@ -287,8 +287,8 @@ void smith_waterman(char* x, char* y) {
       pred[i][j] = 0;
     }
   }
-  int num_teams = 1; 
-  int num_threads = 100; 
+  int num_teams = 100; 
+  int num_threads = 90000; 
   int num_stages = get_num_of_stages(m,n);
   int block_size = (int)ceil((float)num_stages / num_teams);
   forward(x,y,m,n,score,pred,max_score_arr,max_row_arr,max_col_arr,block_size,num_stages,num_teams,num_threads);
